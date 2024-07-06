@@ -107,6 +107,8 @@ class UIManager: ObservableObject {
 }
 
 struct ContentView: View {
+    @Environment(\.scenePhase) private var scenePhase
+    
     @StateObject var manager = UIManager()
     
     var body: some View {
@@ -149,6 +151,11 @@ struct ContentView: View {
         }
         .onAppear {
             manager.checkHealthKitPermission()
+        }
+        .onChange(of: scenePhase) {
+            if(scenePhase == .active) {
+                manager.checkHealthKitPermission()
+            }
         }
     }
 }
