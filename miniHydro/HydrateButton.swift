@@ -13,13 +13,12 @@ struct HydrateButton: View {
     
     var body: some View {
         Button(action: onTap) {
-            // Circle button design
             Circle()
-                .fill(Color.blue)
+                .fill(.background)
                 .frame(width: 100, height: 100)
                 .overlay(
                     Text("Hydrate")
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                         .fontWeight(.bold)
                 )
         }

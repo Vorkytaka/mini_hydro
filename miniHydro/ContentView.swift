@@ -58,57 +58,89 @@ struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
     
     @StateObject var manager = UIManager()
+    @State private var percent = 90.0
+    @State private var waveOffset = Angle(degrees: 0)
     
     let volumeUnits: [HKUnit] = [.literUnit(with: .milli), .fluidOunceUS(), .fluidOunceImperial()]
     
     var body: some View {
-        VStack {
-            let status = manager.permissionStatus
-            if(status == .sharingDenied) {
-                Text("You reject permission")
-            } else if (status == .notDetermined) {
-                Button(action: {
-                    manager.requestPermission()
-                }) {
-                    Text("Request Permission")
-                }
-            } else if (!manager.hasVolume()) {
-                TextField("Enter a number", text: $manager.inputValue)
-                    .keyboardType(.decimalPad)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-                
-                Picker("Select Unit", selection: $manager.selectedUnit) {
-                    ForEach(volumeUnits, id: \.self) { unit in
-                        Text("\(unit)").tag(unit)
+        let status = manager.permissionStatus
+        
+        ZStack {
+            Wave(offSet: Angle(degrees: waveOffset.degrees), percent: percent)
+                            .fill(Color.blue)
+                            .ignoresSafeArea(.all)
+            
+            VStack {
+                if(status == .sharingDenied) {
+                    Text("You reject permission")
+                    Button(action: {
+                        openAppSettings()
+                    }) {
+                        Text("Open App Settings")
                     }
-                }
-                .pickerStyle(MenuPickerStyle())
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(5)
-
-                
-                Button(action: {
-                    manager.setVolume()
-                }) {
-                    Text("Submit")
+                    
+                } else if (status == .notDetermined) {
+                    Button(action: {
+                        manager.requestPermission()
+                    }) {
+                        Text("Request Permission")
+                    }
+                } else if (!manager.hasVolume()) {
+                    TextField("Enter a number", text: $manager.inputValue)
+                        .keyboardType(.decimalPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
+                    
+                    Picker("Select Unit", selection: $manager.selectedUnit) {
+                        ForEach(volumeUnits, id: \.self) { unit in
+                            Text("\(unit)").tag(unit)
+                        }
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(5)
+
+                    
+                    Button(action: {
+                        manager.setVolume()
+                    }) {
+                        Text("Submit")
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                    }
+                } else {
+                    HydrateButton(onTap: manager.hydrate)
                 }
-            } else {
-                HydrateButton(onTap: manager.hydrate)
+            }
+            .onAppear {
+                manager.checkHealthKitPermission()
+            }
+            .onChange(of: scenePhase) {
+                if(scenePhase == .active) {
+                    manager.checkHealthKitPermission()
+                }
             }
         }
         .onAppear {
-            manager.checkHealthKitPermission()
-        }
-        .onChange(of: scenePhase) {
-            if(scenePhase == .active) {
-                manager.checkHealthKitPermission()
+            withAnimation(.linear(duration: 3).repeatForever(autoreverses: false)) {
+                self.waveOffset = Angle(degrees: 360)
             }
+        }
+    }
+    
+    func openAppSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl, completionHandler: { success in
+                print("Settings opened: \(success)")
+            })
         }
     }
 }
@@ -122,7 +154,42 @@ struct MyApp: App {
     }
 }
 
-
+struct Wave: Shape {
+    
+    var offSet: Angle
+    var percent: Double
+    
+    var animatableData: Double {
+        get { offSet.degrees }
+        set { offSet = Angle(degrees: newValue) }
+    }
+    
+    func path(in rect: CGRect) -> Path {
+        var p = Path()
+        
+        let lowestWave = 0.02
+        let highestWave = 1.00
+        
+        let newPercent = lowestWave + (highestWave - lowestWave) * (percent / 100)
+        let waveHeight = 0.015 * rect.height
+        let yOffSet = CGFloat(1 - newPercent) * (rect.height - 4 * waveHeight) + 2 * waveHeight
+        let startAngle = offSet
+        let endAngle = offSet + Angle(degrees: 360 + 10)
+        
+        p.move(to: CGPoint(x: 0, y: yOffSet + waveHeight * CGFloat(sin(offSet.radians))))
+        
+        for angle in stride(from: startAngle.degrees, through: endAngle.degrees, by: 5) {
+            let x = CGFloat((angle - startAngle.degrees) / 360) * rect.width
+            p.addLine(to: CGPoint(x: x, y: yOffSet + waveHeight * CGFloat(sin(Angle(degrees: angle).radians))))
+        }
+        
+        p.addLine(to: CGPoint(x: rect.width, y: rect.height))
+        p.addLine(to: CGPoint(x: 0, y: rect.height))
+        p.closeSubpath()
+        
+        return p
+    }
+}
 
 #Preview {
     ContentView()
