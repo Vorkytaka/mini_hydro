@@ -68,7 +68,8 @@ class UIManager: ObservableObject {
     @Published var volume: HKQuantity? = nil
     @Published var permissionStatus: HKAuthorizationStatus = .notDetermined
     @Published var inputValue: String = ""
-    
+    @Published var selectedUnit: HKUnit = HKUnit.literUnit(with: .milli)
+
     init() {
         checkHealthKitPermission()
         checkVolume()
@@ -96,7 +97,7 @@ class UIManager: ObservableObject {
     
     func setVolume() {
         if let quantity = Double(inputValue) {
-            manager.saveVolume(quantity: quantity, unit: HKUnit.literUnit(with: .milli))
+            manager.saveVolume(quantity: quantity, unit: selectedUnit)
             checkVolume()
         }
     }
@@ -110,6 +111,8 @@ struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
     
     @StateObject var manager = UIManager()
+    
+    let volumeUnits: [HKUnit] = [.literUnit(with: .milli), .fluidOunceUS(), .fluidOunceImperial()]
     
     var body: some View {
         VStack {
@@ -127,6 +130,17 @@ struct ContentView: View {
                     .keyboardType(.decimalPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
+                
+                Picker("Select Unit", selection: $manager.selectedUnit) {
+                    ForEach(volumeUnits, id: \.self) { unit in
+                        Text("\(unit)").tag(unit)
+                    }
+                }
+                .pickerStyle(MenuPickerStyle())
+                .padding()
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(5)
+
                 
                 Button(action: {
                     manager.setVolume()
