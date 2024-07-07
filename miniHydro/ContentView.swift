@@ -58,7 +58,15 @@ struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
     
     @StateObject var manager = UIManager()
-    @State private var percent = 90.0
+    private var percent: Double {
+        if(manager.permissionStatus != .sharingAuthorized) {
+            return 10
+        }
+        if(!manager.hasVolume()) {
+            return 20
+        }
+        return 90
+    }
     @State private var waveOffset = Angle(degrees: 0)
     
     let volumeUnits: [HKUnit] = [.literUnit(with: .milli), .fluidOunceUS(), .fluidOunceImperial()]
