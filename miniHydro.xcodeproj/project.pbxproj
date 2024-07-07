@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		626D7D852C3ABF0600890FCC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626D7D842C3ABF0600890FCC /* WidgetKit.framework */; };
+		626D7D872C3ABF0600890FCC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626D7D862C3ABF0600890FCC /* SwiftUI.framework */; };
+		626D7D8A2C3ABF0600890FCC /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7D892C3ABF0600890FCC /* WidgetBundle.swift */; };
+		626D7D8C2C3ABF0600890FCC /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7D8B2C3ABF0600890FCC /* Widget.swift */; };
+		626D7D8E2C3ABF0800890FCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 626D7D8D2C3ABF0800890FCC /* Assets.xcassets */; };
+		626D7D922C3ABF0800890FCC /* WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 626D7D822C3ABF0600890FCC /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		626D7D982C3ABF8300890FCC /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7D972C3ABF8300890FCC /* Manager.swift */; };
+		626D7D992C3ABF8300890FCC /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7D972C3ABF8300890FCC /* Manager.swift */; };
+		626D7D9C2C3AC20500890FCC /* HydrateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7D9B2C3AC20500890FCC /* HydrateButton.swift */; };
+		626D7D9D2C3AC20500890FCC /* HydrateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7D9B2C3AC20500890FCC /* HydrateButton.swift */; };
 		62B9B80F2C360AAE00586F15 /* miniHydroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9B80E2C360AAE00586F15 /* miniHydroApp.swift */; };
 		62B9B8112C360AAE00586F15 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9B8102C360AAE00586F15 /* ContentView.swift */; };
 		62B9B8132C360AAE00586F15 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9B8122C360AAE00586F15 /* Item.swift */; };
@@ -14,7 +24,41 @@
 		62B9B8182C360AAF00586F15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62B9B8172C360AAF00586F15 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		626D7D902C3ABF0800890FCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62B9B8032C360AAE00586F15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 626D7D812C3ABF0600890FCC;
+			remoteInfo = WidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		626D7D932C3ABF0800890FCC /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				626D7D922C3ABF0800890FCC /* WidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		626D7D822C3ABF0600890FCC /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		626D7D842C3ABF0600890FCC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		626D7D862C3ABF0600890FCC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		626D7D892C3ABF0600890FCC /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
+		626D7D8B2C3ABF0600890FCC /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
+		626D7D8D2C3ABF0800890FCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		626D7D8F2C3ABF0800890FCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		626D7D972C3ABF8300890FCC /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		626D7D9A2C3AC08F00890FCC /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
+		626D7D9B2C3AC20500890FCC /* HydrateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrateButton.swift; sourceTree = "<group>"; };
 		62B9B80B2C360AAE00586F15 /* miniHydro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = miniHydro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B9B80E2C360AAE00586F15 /* miniHydroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miniHydroApp.swift; sourceTree = "<group>"; };
 		62B9B8102C360AAE00586F15 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,6 +70,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		626D7D7F2C3ABF0600890FCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				626D7D872C3ABF0600890FCC /* SwiftUI.framework in Frameworks */,
+				626D7D852C3ABF0600890FCC /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		62B9B8082C360AAE00586F15 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -36,10 +89,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		626D7D832C3ABF0600890FCC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				626D7D842C3ABF0600890FCC /* WidgetKit.framework */,
+				626D7D862C3ABF0600890FCC /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		626D7D882C3ABF0600890FCC /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				626D7D892C3ABF0600890FCC /* WidgetBundle.swift */,
+				626D7D8B2C3ABF0600890FCC /* Widget.swift */,
+				626D7D8D2C3ABF0800890FCC /* Assets.xcassets */,
+				626D7D8F2C3ABF0800890FCC /* Info.plist */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 		62B9B8022C360AAE00586F15 = {
 			isa = PBXGroup;
 			children = (
+				626D7D9A2C3AC08F00890FCC /* WidgetExtension.entitlements */,
 				62B9B80D2C360AAE00586F15 /* miniHydro */,
+				626D7D882C3ABF0600890FCC /* Widget */,
+				626D7D832C3ABF0600890FCC /* Frameworks */,
 				62B9B80C2C360AAE00586F15 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				62B9B80B2C360AAE00586F15 /* miniHydro.app */,
+				626D7D822C3ABF0600890FCC /* WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,6 +139,8 @@
 				62B9B8122C360AAE00586F15 /* Item.swift */,
 				62B9B8142C360AAF00586F15 /* Assets.xcassets */,
 				62B9B8162C360AAF00586F15 /* Preview Content */,
+				626D7D972C3ABF8300890FCC /* Manager.swift */,
+				626D7D9B2C3AC20500890FCC /* HydrateButton.swift */,
 			);
 			path = miniHydro;
 			sourceTree = "<group>";
@@ -77,6 +156,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		626D7D812C3ABF0600890FCC /* WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 626D7D962C3ABF0800890FCC /* Build configuration list for PBXNativeTarget "WidgetExtension" */;
+			buildPhases = (
+				626D7D7E2C3ABF0600890FCC /* Sources */,
+				626D7D7F2C3ABF0600890FCC /* Frameworks */,
+				626D7D802C3ABF0600890FCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WidgetExtension;
+			productName = WidgetExtension;
+			productReference = 626D7D822C3ABF0600890FCC /* WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		62B9B80A2C360AAE00586F15 /* miniHydro */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62B9B81B2C360AAF00586F15 /* Build configuration list for PBXNativeTarget "miniHydro" */;
@@ -84,10 +180,12 @@
 				62B9B8072C360AAE00586F15 /* Sources */,
 				62B9B8082C360AAE00586F15 /* Frameworks */,
 				62B9B8092C360AAE00586F15 /* Resources */,
+				626D7D932C3ABF0800890FCC /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				626D7D912C3ABF0800890FCC /* PBXTargetDependency */,
 			);
 			name = miniHydro;
 			productName = miniHydro;
@@ -104,6 +202,9 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					626D7D812C3ABF0600890FCC = {
+						CreatedOnToolsVersion = 15.4;
+					};
 					62B9B80A2C360AAE00586F15 = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -123,11 +224,20 @@
 			projectRoot = "";
 			targets = (
 				62B9B80A2C360AAE00586F15 /* miniHydro */,
+				626D7D812C3ABF0600890FCC /* WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		626D7D802C3ABF0600890FCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				626D7D8E2C3ABF0800890FCC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		62B9B8092C360AAE00586F15 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -140,19 +250,110 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		626D7D7E2C3ABF0600890FCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				626D7D8A2C3ABF0600890FCC /* WidgetBundle.swift in Sources */,
+				626D7D992C3ABF8300890FCC /* Manager.swift in Sources */,
+				626D7D8C2C3ABF0600890FCC /* Widget.swift in Sources */,
+				626D7D9D2C3AC20500890FCC /* HydrateButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		62B9B8072C360AAE00586F15 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				626D7D9C2C3AC20500890FCC /* HydrateButton.swift in Sources */,
 				62B9B8112C360AAE00586F15 /* ContentView.swift in Sources */,
 				62B9B8132C360AAE00586F15 /* Item.swift in Sources */,
 				62B9B80F2C360AAE00586F15 /* miniHydroApp.swift in Sources */,
+				626D7D982C3ABF8300890FCC /* Manager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		626D7D912C3ABF0800890FCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 626D7D812C3ABF0600890FCC /* WidgetExtension */;
+			targetProxy = 626D7D902C3ABF0800890FCC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		626D7D942C3ABF0800890FCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BD4KPFJ9C6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tk.vrk.miniHydro.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		626D7D952C3ABF0800890FCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BD4KPFJ9C6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tk.vrk.miniHydro.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		62B9B8192C360AAF00586F15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -275,6 +476,7 @@
 		62B9B81C2C360AAF00586F15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = miniHydro/miniHydro.entitlements;
@@ -285,6 +487,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = miniHydro/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = miniHydro;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -311,6 +515,7 @@
 		62B9B81D2C360AAF00586F15 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = miniHydro/miniHydro.entitlements;
@@ -321,6 +526,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = miniHydro/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = miniHydro;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -347,6 +554,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		626D7D962C3ABF0800890FCC /* Build configuration list for PBXNativeTarget "WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				626D7D942C3ABF0800890FCC /* Debug */,
+				626D7D952C3ABF0800890FCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		62B9B8062C360AAE00586F15 /* Build configuration list for PBXProject "miniHydro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
