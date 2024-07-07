@@ -8,9 +8,5 @@
 	<string>For something</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>For something 2</string>
-	<key>CFBundleDocumentTypes</key>
-	<array>
-		<dict/>
-	</array>
 </dict>
 </plist>
