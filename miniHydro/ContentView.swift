@@ -60,16 +60,14 @@ struct ContentView: View {
     @StateObject var manager = UIManager()
     private var percent: Double {
         if(manager.permissionStatus != .sharingAuthorized) {
-            return 10
+            return 15
         }
         if(!manager.hasVolume()) {
-            return 20
+            return 30
         }
         return 90
     }
     @State private var waveOffset = Angle(degrees: 0)
-    
-    let volumeUnits: [HKUnit] = [.literUnit(with: .milli), .fluidOunceUS(), .fluidOunceImperial()]
     
     var body: some View {
         let status = manager.permissionStatus
@@ -79,64 +77,41 @@ struct ContentView: View {
                             .fill(Color.blue)
                             .ignoresSafeArea(.all)
             
-            VStack {
-                if(status == .sharingDenied) {
-                    Text("You reject permission")
-                    Button(action: {
-                        openAppSettings()
-                    }) {
-                        Text("Open App Settings")
-                    }
-                    
-                } else if (status == .notDetermined) {
-                    Button(action: {
-                        manager.requestPermission()
-                    }) {
-                        Text("Request Permission")
-                    }
-                } else if (!manager.hasVolume()) {
-                    TextField("Enter a number", text: $manager.inputValue)
-                        .keyboardType(.decimalPad)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-                    
-                    Picker("Select Unit", selection: $manager.selectedUnit) {
-                        ForEach(volumeUnits, id: \.self) { unit in
-                            Text("\(unit)").tag(unit)
-                        }
-                    }
-                    .pickerStyle(MenuPickerStyle())
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(5)
-
-                    
-                    Button(action: {
-                        manager.setVolume()
-                    }) {
-                        Text("Submit")
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                    }
-                } else {
-                    HydrateButton(onTap: manager.hydrate)
-                }
+            if(status == .sharingDenied) {
+                RejectPermission()
+            } else if (status == .notDetermined) {
+                RequestPermission()
+                    .environmentObject(manager)
+            } else if (!manager.hasVolume()) {
+                RequestVolume()
+                    .environmentObject(manager)
+            } else {
+                HydrateButton(onTap: manager.hydrate)
             }
-            .onAppear {
+        }
+        .onAppear {
+            manager.checkHealthKitPermission()
+        }
+        .onChange(of: scenePhase) {
+            if(scenePhase == .active) {
                 manager.checkHealthKitPermission()
-            }
-            .onChange(of: scenePhase) {
-                if(scenePhase == .active) {
-                    manager.checkHealthKitPermission()
-                }
             }
         }
         .onAppear {
             withAnimation(.linear(duration: 3).repeatForever(autoreverses: false)) {
                 self.waveOffset = Angle(degrees: 360)
             }
+        }
+    }
+}
+
+struct RejectPermission : View {
+    var body: some View {
+        Text("You reject permission")
+        Button(action: {
+            openAppSettings()
+        }) {
+            Text("Open App Settings")
         }
     }
     
@@ -149,6 +124,40 @@ struct ContentView: View {
             UIApplication.shared.open(settingsUrl, completionHandler: { success in
                 print("Settings opened: \(success)")
             })
+        }
+    }
+}
+
+struct RequestVolume : View {
+    let volumeUnits: [HKUnit] = [.literUnit(with: .milli), .fluidOunceUS(), .fluidOunceImperial()]
+    
+    @EnvironmentObject var manager: UIManager
+    
+    var body: some View {
+        TextField("Enter a number", text: $manager.inputValue)
+            .keyboardType(.decimalPad)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .padding()
+        
+        Picker("Select Unit", selection: $manager.selectedUnit) {
+            ForEach(volumeUnits, id: \.self) { unit in
+                Text("\(unit)").tag(unit)
+            }
+        }
+        .pickerStyle(MenuPickerStyle())
+        .padding()
+        .background(Color.gray.opacity(0.2))
+        .cornerRadius(5)
+
+        
+        Button(action: {
+            manager.setVolume()
+        }) {
+            Text("Submit")
+                .padding()
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(8)
         }
     }
 }

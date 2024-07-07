@@ -17,6 +17,7 @@
 		626D7D992C3ABF8300890FCC /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7D972C3ABF8300890FCC /* Manager.swift */; };
 		626D7D9C2C3AC20500890FCC /* HydrateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7D9B2C3AC20500890FCC /* HydrateButton.swift */; };
 		626D7D9D2C3AC20500890FCC /* HydrateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7D9B2C3AC20500890FCC /* HydrateButton.swift */; };
+		626D7D9F2C3B48B600890FCC /* RequestPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7D9E2C3B48B600890FCC /* RequestPermission.swift */; };
 		62B9B80F2C360AAE00586F15 /* miniHydroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9B80E2C360AAE00586F15 /* miniHydroApp.swift */; };
 		62B9B8112C360AAE00586F15 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9B8102C360AAE00586F15 /* ContentView.swift */; };
 		62B9B8132C360AAE00586F15 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9B8122C360AAE00586F15 /* Item.swift */; };
@@ -59,6 +60,7 @@
 		626D7D972C3ABF8300890FCC /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		626D7D9A2C3AC08F00890FCC /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
 		626D7D9B2C3AC20500890FCC /* HydrateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrateButton.swift; sourceTree = "<group>"; };
+		626D7D9E2C3B48B600890FCC /* RequestPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermission.swift; sourceTree = "<group>"; };
 		62B9B80B2C360AAE00586F15 /* miniHydro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = miniHydro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B9B80E2C360AAE00586F15 /* miniHydroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miniHydroApp.swift; sourceTree = "<group>"; };
 		62B9B8102C360AAE00586F15 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				62B9B8162C360AAF00586F15 /* Preview Content */,
 				626D7D972C3ABF8300890FCC /* Manager.swift */,
 				626D7D9B2C3AC20500890FCC /* HydrateButton.swift */,
+				626D7D9E2C3B48B600890FCC /* RequestPermission.swift */,
 			);
 			path = miniHydro;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				626D7D9F2C3B48B600890FCC /* RequestPermission.swift in Sources */,
 				626D7D9C2C3AC20500890FCC /* HydrateButton.swift in Sources */,
 				62B9B8112C360AAE00586F15 /* ContentView.swift in Sources */,
 				62B9B8132C360AAE00586F15 /* Item.swift in Sources */,
