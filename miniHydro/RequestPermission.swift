@@ -21,9 +21,14 @@ struct RequestPermission : View {
                 manager.requestPermission()
             }) {
                 Text("Grant permission")
-                    .customButton()
+                    .foregroundColor(.primary)
+                    .font(.headline)
+                    .padding()
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+                    .background(RoundedRectangle(cornerRadius: 15, style: .continuous)
+                        .fill(.background))
+                    .padding(.bottom)
             }.padding(.horizontal)
-//            Spacer()
         }
         }
 }
@@ -76,42 +81,14 @@ struct TitleView: View {
     var body: some View {
         VStack {
             Text("Welcome to")
-                .customTitleText()
+                .fontWeight(.black)
+                .font(.system(size: 36))
+                .foregroundColor(.primary)
 
             Text("miniHydro")
-                .customTitleText()
+                .fontWeight(.black)
+                .font(.system(size: 36))
                 .foregroundColor(.blue)
         }
     }
-}
-
-struct ButtonModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .foregroundColor(.primary)
-            .font(.headline)
-            .padding()
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
-            .background(RoundedRectangle(cornerRadius: 15, style: .continuous)
-                .fill(.background))
-            .padding(.bottom)
-    }
-}
-
-extension View {
-    func customButton() -> ModifiedContent<Self, ButtonModifier> {
-        return modifier(ButtonModifier())
-    }
-}
-
-extension Text {
-    func customTitleText() -> Text {
-        self
-            .fontWeight(.black)
-            .font(.system(size: 36))
-    }
-}
-
-extension Color {
-    static var mainColor = Color(UIColor.systemIndigo)
 }

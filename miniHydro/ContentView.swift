@@ -11,12 +11,12 @@ import HealthKit
 
 class UIManager: ObservableObject {
     private let manager = Manager.shared
-
+    
     @Published var volume: HKQuantity? = nil
     @Published var permissionStatus: HKAuthorizationStatus = .notDetermined
     @Published var inputValue: String = ""
     @Published var selectedUnit: HKUnit = HKUnit.literUnit(with: .milli)
-
+    
     init() {
         checkHealthKitPermission()
         checkVolume()
@@ -63,7 +63,7 @@ struct ContentView: View {
             return 15
         }
         if(!manager.hasVolume()) {
-            return 30
+            return 40
         }
         return 90
     }
@@ -74,8 +74,8 @@ struct ContentView: View {
         
         ZStack {
             Wave(offSet: Angle(degrees: waveOffset.degrees), percent: percent)
-                            .fill(Color.blue)
-                            .ignoresSafeArea(.all)
+                .fill(Color.blue)
+                .ignoresSafeArea(.all)
             
             if(status == .sharingDenied) {
                 RejectPermission()
@@ -124,40 +124,6 @@ struct RejectPermission : View {
             UIApplication.shared.open(settingsUrl, completionHandler: { success in
                 print("Settings opened: \(success)")
             })
-        }
-    }
-}
-
-struct RequestVolume : View {
-    let volumeUnits: [HKUnit] = [.literUnit(with: .milli), .fluidOunceUS(), .fluidOunceImperial()]
-    
-    @EnvironmentObject var manager: UIManager
-    
-    var body: some View {
-        TextField("Enter a number", text: $manager.inputValue)
-            .keyboardType(.decimalPad)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .padding()
-        
-        Picker("Select Unit", selection: $manager.selectedUnit) {
-            ForEach(volumeUnits, id: \.self) { unit in
-                Text("\(unit)").tag(unit)
-            }
-        }
-        .pickerStyle(MenuPickerStyle())
-        .padding()
-        .background(Color.gray.opacity(0.2))
-        .cornerRadius(5)
-
-        
-        Button(action: {
-            manager.setVolume()
-        }) {
-            Text("Submit")
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(8)
         }
     }
 }
