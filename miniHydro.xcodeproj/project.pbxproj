@@ -19,9 +19,7 @@
 		626D7D9D2C3AC20500890FCC /* HydrateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7D9B2C3AC20500890FCC /* HydrateButton.swift */; };
 		626D7D9F2C3B48B600890FCC /* RequestPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7D9E2C3B48B600890FCC /* RequestPermission.swift */; };
 		626D7DA12C3CA3B600890FCC /* RequestVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7DA02C3CA3B600890FCC /* RequestVolume.swift */; };
-		62B9B80F2C360AAE00586F15 /* miniHydroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9B80E2C360AAE00586F15 /* miniHydroApp.swift */; };
 		62B9B8112C360AAE00586F15 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9B8102C360AAE00586F15 /* ContentView.swift */; };
-		62B9B8132C360AAE00586F15 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9B8122C360AAE00586F15 /* Item.swift */; };
 		62B9B8152C360AAF00586F15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62B9B8142C360AAF00586F15 /* Assets.xcassets */; };
 		62B9B8182C360AAF00586F15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62B9B8172C360AAF00586F15 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -64,9 +62,7 @@
 		626D7D9E2C3B48B600890FCC /* RequestPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermission.swift; sourceTree = "<group>"; };
 		626D7DA02C3CA3B600890FCC /* RequestVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestVolume.swift; sourceTree = "<group>"; };
 		62B9B80B2C360AAE00586F15 /* miniHydro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = miniHydro.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		62B9B80E2C360AAE00586F15 /* miniHydroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miniHydroApp.swift; sourceTree = "<group>"; };
 		62B9B8102C360AAE00586F15 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		62B9B8122C360AAE00586F15 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		62B9B8142C360AAF00586F15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62B9B8172C360AAF00586F15 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		62B9B81E2C360D5D00586F15 /* miniHydro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = miniHydro.entitlements; sourceTree = "<group>"; };
@@ -138,9 +134,7 @@
 			children = (
 				62B9B8232C36136C00586F15 /* Info.plist */,
 				62B9B81E2C360D5D00586F15 /* miniHydro.entitlements */,
-				62B9B80E2C360AAE00586F15 /* miniHydroApp.swift */,
 				62B9B8102C360AAE00586F15 /* ContentView.swift */,
-				62B9B8122C360AAE00586F15 /* Item.swift */,
 				62B9B8142C360AAF00586F15 /* Assets.xcassets */,
 				62B9B8162C360AAF00586F15 /* Preview Content */,
 				626D7D972C3ABF8300890FCC /* Manager.swift */,
@@ -275,8 +269,6 @@
 				626D7D9F2C3B48B600890FCC /* RequestPermission.swift in Sources */,
 				626D7D9C2C3AC20500890FCC /* HydrateButton.swift in Sources */,
 				62B9B8112C360AAE00586F15 /* ContentView.swift in Sources */,
-				62B9B8132C360AAE00586F15 /* Item.swift in Sources */,
-				62B9B80F2C360AAE00586F15 /* miniHydroApp.swift in Sources */,
 				626D7D982C3ABF8300890FCC /* Manager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

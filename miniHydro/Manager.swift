@@ -56,7 +56,9 @@ class Manager {
         if(quantity == nil) {
             return
         }
-        let sample = HKQuantitySample(type: waterType, quantity: quantity!, start: .now, end: .now)
-        healthKit.save(sample) { success, error in }
+        
+        let date: Date = .now
+        let sample = HKQuantitySample(type: waterType, quantity: quantity!, start: date, end: date)
+        healthKit.save(sample) { success, error in}
     }
 }
