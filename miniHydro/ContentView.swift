@@ -56,26 +56,20 @@ class UIManager: ObservableObject {
 
 struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
+    private let screenSize = UIScreen.main.bounds.size
     
     @StateObject var manager = UIManager()
-    private var percent: Double {
-        if(manager.permissionStatus != .sharingAuthorized) {
-            return 15
-        }
-        if(!manager.hasVolume()) {
-            return 40
-        }
-        return 90
-    }
+    @State private var percent: Double = 0.7
     @State private var waveOffset = Angle(degrees: 0)
     
     var body: some View {
         let status = manager.permissionStatus
         
         ZStack {
-            Wave(offSet: Angle(degrees: waveOffset.degrees), percent: percent)
+            Wave(offSet: Angle(degrees: waveOffset.degrees))
                 .fill(Color.blue)
                 .ignoresSafeArea(.all)
+                .offset(y: screenSize.height * percent)
             
             if(status == .sharingDenied) {
                 RejectPermission()
@@ -91,6 +85,7 @@ struct ContentView: View {
         }
         .onAppear {
             manager.checkHealthKitPermission()
+            updateWaveSize()
         }
         .onChange(of: scenePhase) {
             if(scenePhase == .active) {
@@ -100,6 +95,26 @@ struct ContentView: View {
         .onAppear {
             withAnimation(.linear(duration: 3).repeatForever(autoreverses: false)) {
                 self.waveOffset = Angle(degrees: 360)
+            }
+        }
+        .onChange(of: manager.permissionStatus) {
+            updateWaveSize()
+        }
+        .onChange(of: manager.volume) {
+            updateWaveSize()
+        }
+    }
+    
+    private func updateWaveSize() {
+        withAnimation {
+            if(manager.permissionStatus != .sharingAuthorized) {
+                percent = 0.7
+            }
+            else if(!manager.hasVolume()) {
+                percent = 0.5
+            }
+            else {
+                percent = 0.05
             }
         }
     }
@@ -171,7 +186,6 @@ struct MyApp: App {
 struct Wave: Shape {
     
     var offSet: Angle
-    var percent: Double
     
     var animatableData: Double {
         get { offSet.degrees }
@@ -184,7 +198,7 @@ struct Wave: Shape {
         let lowestWave = 0.02
         let highestWave = 1.00
         
-        let newPercent = lowestWave + (highestWave - lowestWave) * (percent / 100)
+        let newPercent = lowestWave + (highestWave - lowestWave)
         let waveHeight = 0.015 * rect.height
         let yOffSet = CGFloat(1 - newPercent) * (rect.height - 4 * waveHeight) + 2 * waveHeight
         let startAngle = offSet
