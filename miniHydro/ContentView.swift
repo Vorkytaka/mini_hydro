@@ -107,12 +107,43 @@ struct ContentView: View {
 
 struct RejectPermission : View {
     var body: some View {
-        Text("You reject permission")
-        Button(action: {
-            openAppSettings()
-        }) {
-            Text("Open App Settings")
+        VStack(alignment: .leading) {
+            Spacer()
+            Text("We Need Your Permission")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding([.bottom], 12)
+            Text("""
+To help you stay on top of your hydration goals, we need permission to update your water intake in the Apple Health app. This allows us to keep all your health data in one convenient place.
+""")
+            Spacer()
+            Text("How to Grant Permission:")
+                .font(.headline)
+                .fontWeight(.bold)
+                .padding([.bottom], 12)
+            Text("""
+1. Open the Settings app on your iPhone.
+2. Tap on Health settings.
+3. Open Data Access & Devices.
+4. Find and select miniHydro from the list.
+5. Toggle on the permission to update your Water Intake.
+""")
+            
+            Spacer()
+            Button(action: {
+                openAppSettings()
+            }) {
+                Text("Open settings")
+                    .foregroundColor(.primary)
+                    .font(.headline)
+                    .padding()
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+                    .background(RoundedRectangle(cornerRadius: 15, style: .continuous)
+                        .fill(.background))
+                    .padding(.bottom)
+            }
         }
+        .padding(.horizontal)
     }
     
     func openAppSettings() {
