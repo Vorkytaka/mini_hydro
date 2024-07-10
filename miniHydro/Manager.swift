@@ -61,4 +61,8 @@ class Manager {
         let sample = HKQuantitySample(type: waterType, quantity: quantity!, start: date, end: date)
         healthKit.save(sample) { success, error in}
     }
+    
+    func cleanVolume() {
+        userDefaults.removeObject(forKey: Manager.volumeKey)
+    }
 }

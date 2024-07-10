@@ -52,6 +52,11 @@ class UIManager: ObservableObject {
     func hasVolume() -> Bool {
         return manager.getVolume() != nil
     }
+    
+    func cleanVolume() {
+        manager.cleanVolume()
+        checkVolume()
+    }
 }
 
 struct ContentView: View {
@@ -80,7 +85,20 @@ struct ContentView: View {
                 RequestVolume()
                     .environmentObject(manager)
             } else {
-                HydrateButton(onTap: manager.hydrate)
+                VStack {
+                    Spacer()
+                    HydrateButton(onTap: manager.hydrate)
+                    Spacer()
+                    Button(action: manager.cleanVolume) {
+                        Image(systemName: "waterbottle")
+                            .font(.largeTitle)
+                            .foregroundColor(.white.opacity(0.5))
+                            .padding()
+                            .accessibility(hidden: true)
+                            .frame(width: 76)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                }
             }
         }
         .onAppear {

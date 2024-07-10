@@ -4,9 +4,7 @@
 <dict>
 	<key>CFBundleIdentifier</key>
 	<string></string>
-	<key>NSHealthShareUsageDescription</key>
-	<string>For something</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>For something 2</string>
+	<string>We use this permission to update your water intake data in the Health app, helping you stay hydrated and maintain your health goals.</string>
 </dict>
 </plist>
