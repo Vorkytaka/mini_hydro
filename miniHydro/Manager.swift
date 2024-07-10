@@ -41,6 +41,15 @@ class Manager {
         return nil
     }
     
+    func getUnit() -> HKUnit? {
+        if let savedDictionary = userDefaults.dictionary(forKey: Manager.volumeKey),
+           let value = savedDictionary[Manager.volumeValueKey] as? Double,
+           let unitString = savedDictionary[Manager.volumeUnitKey] as? String {
+            return HKUnit(from: unitString)
+        }
+        return nil
+    }
+    
     func requestHealthKitPermission(completion: @escaping (Bool, (any Error)?) -> Void) {
         healthKit.requestAuthorization(toShare: [waterType], read: []) { success, error in
             completion(success, error)

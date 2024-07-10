@@ -13,9 +13,11 @@ class UIManager: ObservableObject {
     private let manager = Manager.shared
     
     @Published var volume: HKQuantity? = nil
+    @Published var unit: HKUnit? = nil
     @Published var permissionStatus: HKAuthorizationStatus = .notDetermined
     @Published var inputValue: String = ""
     @Published var selectedUnit: HKUnit = HKUnit.literUnit(with: .milli)
+    @Published var volumeInputError = false
     
     init() {
         checkHealthKitPermission()
@@ -36,6 +38,7 @@ class UIManager: ObservableObject {
     
     func checkVolume() {
         volume = manager.getVolume()
+        unit = manager.getUnit()
     }
     
     func hydrate() {
@@ -43,9 +46,12 @@ class UIManager: ObservableObject {
     }
     
     func setVolume() {
-        if let quantity = Double(inputValue) {
+        let withDot = inputValue.replacing(",", with: ".")
+        if let quantity = Double(withDot) {
             manager.saveVolume(quantity: quantity, unit: selectedUnit)
             checkVolume()
+        } else {
+            volumeInputError = true
         }
     }
     
@@ -54,6 +60,10 @@ class UIManager: ObservableObject {
     }
     
     func cleanVolume() {
+        if(unit != nil) {
+            selectedUnit = unit!
+            inputValue = "\(volume!.doubleValue(for: selectedUnit))"
+        }
         manager.cleanVolume()
         checkVolume()
     }
@@ -85,18 +95,28 @@ struct ContentView: View {
                 RequestVolume()
                     .environmentObject(manager)
             } else {
+                let unit = manager.unit!
+                let volume = manager.volume!
+                
+                let volumeByUnit = volume.doubleValue(for: unit)
+                let volumeStr = "\(volumeByUnit) \(unit)"
+                
                 VStack {
                     Spacer()
                     HydrateButton(onTap: manager.hydrate)
                     Spacer()
                     Button(action: manager.cleanVolume) {
-                        Image(systemName: "waterbottle")
-                            .font(.largeTitle)
-                            .foregroundColor(.white.opacity(0.5))
-                            .padding()
-                            .accessibility(hidden: true)
-                            .frame(width: 76)
+                        VStack {
+                            Image(systemName: "waterbottle")
+                                .font(.largeTitle)
+                                .accessibility(hidden: true)
+                                .frame(width: 76)
+                            Text(volumeStr)
+                                .font(.caption)
+                        }
+                        .padding()
                     }
+                    .foregroundColor(.white.opacity(0.5))
                     .frame(maxWidth: .infinity, alignment: .trailing)
                 }
             }

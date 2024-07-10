@@ -22,6 +22,12 @@ struct RequestVolume : View {
             HStack {
                 Text("Volume")
                 TextField("500", text: $manager.inputValue)
+                    .onChange(of: manager.inputValue) {
+                        let filtered = manager.inputValue.filter { "0123456789,.".contains($0) }
+                        if filtered != manager.inputValue {
+                                        manager.inputValue = filtered
+                                    }
+                                }
                     .keyboardType(.decimalPad)
                     .textFieldStyle(.plain)
                     .multilineTextAlignment(.trailing)
@@ -39,7 +45,14 @@ struct RequestVolume : View {
                 .pickerStyle(.menu)
                 .frame(width: 100)
             }
-            .padding([.bottom], 24)
+            if(manager.volumeInputError) {
+                Text("Invalid input. Please enter a positive number for the bottle volume.")
+                    .multilineTextAlignment(.trailing)
+                    .font(.caption)
+                    .foregroundColor(.red)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding(.horizontal)
+            }
             
             Button(action: {
                 manager.setVolume()
@@ -52,7 +65,9 @@ struct RequestVolume : View {
                     .background(RoundedRectangle(cornerRadius: 15, style: .continuous)
                         .fill(.blue))
                     .padding(.bottom)
-            }.padding(.horizontal)
+            }
+            .padding(.horizontal)
+            .padding([.top], 24)
             Spacer()
         }
         .padding(.horizontal)
