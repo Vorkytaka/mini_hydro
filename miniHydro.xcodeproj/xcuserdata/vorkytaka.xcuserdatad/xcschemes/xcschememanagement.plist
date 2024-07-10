@@ -12,7 +12,20 @@
 		<key>miniHydro.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>626D7D812C3ABF0600890FCC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>62B9B80A2C360AAE00586F15</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
