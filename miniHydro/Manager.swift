@@ -45,7 +45,7 @@ class Manager {
     }
     
     func getUnit() -> HKUnit {
-        return unit!
+        return unit ?? HKUnit.literUnit(with: .milli)
     }
     
     func requestHealthKitPermission(completion: @escaping (Bool, (any Error)?) -> Void) {
