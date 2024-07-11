@@ -99,11 +99,11 @@ struct ContentView: View {
                 let volume = manager.volume!
                 
                 let volumeByUnit = volume.doubleValue(for: unit)
-                let volumeStr = "\(volumeByUnit) \(unit)"
+                let volumeStr = "+ \(volumeByUnit) \(unit)"
                 
                 VStack {
                     Spacer()
-                    HydrateButton(onTap: manager.hydrate)
+                    HydrateButton(text: volumeStr, onTap: manager.hydrate)
                     Spacer()
                     Button(action: manager.cleanVolume) {
                         VStack {
@@ -111,7 +111,7 @@ struct ContentView: View {
                                 .font(.largeTitle)
                                 .accessibility(hidden: true)
                                 .frame(width: 76)
-                            Text(volumeStr)
+                            Text("Update\nbottle")
                                 .font(.caption)
                         }
                         .padding()
