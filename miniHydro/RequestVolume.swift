@@ -17,10 +17,10 @@ struct RequestVolume : View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("To help you track your water intake, we need to know the volume of the glass or bottle you typically use.")
+            Text(NSLocalizedString("VOLUME__EXPLANATION", comment: ""))
                 .padding([.top, .bottom], 24)
             HStack {
-                Text("Volume")
+                Text(NSLocalizedString("VOLUME__HINT", comment: ""))
                 TextField("500", text: $manager.inputValue)
                     .onChange(of: manager.inputValue) {
                         let filtered = manager.inputValue.filter { "0123456789,.".contains($0) }
@@ -42,7 +42,7 @@ struct RequestVolume : View {
                     .frame(width: 100)
             }
             if(manager.volumeInputError) {
-                Text("Invalid input. Please enter a positive number for the bottle volume.")
+                Text(NSLocalizedString("VOLUME__ERROR", comment: ""))
                     .multilineTextAlignment(.trailing)
                     .font(.caption)
                     .foregroundColor(.red)
@@ -53,7 +53,7 @@ struct RequestVolume : View {
             Button(action: {
                 manager.setVolume()
             }) {
-                Text("Submit")
+                Text(NSLocalizedString("VOLUME__SUBMIT", comment: ""))
                     .foregroundColor(.white)
                     .font(.headline)
                     .padding()

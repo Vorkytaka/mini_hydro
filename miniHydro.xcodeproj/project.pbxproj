@@ -19,6 +19,8 @@
 		626D7D9D2C3AC20500890FCC /* HydrateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7D9B2C3AC20500890FCC /* HydrateButton.swift */; };
 		626D7D9F2C3B48B600890FCC /* RequestPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7D9E2C3B48B600890FCC /* RequestPermission.swift */; };
 		626D7DA12C3CA3B600890FCC /* RequestVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7DA02C3CA3B600890FCC /* RequestVolume.swift */; };
+		626D7DA42C40961400890FCC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 626D7DA22C40961400890FCC /* Localizable.strings */; };
+		626D7DA52C40961400890FCC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 626D7DA22C40961400890FCC /* Localizable.strings */; };
 		62B9B8112C360AAE00586F15 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9B8102C360AAE00586F15 /* ContentView.swift */; };
 		62B9B8152C360AAF00586F15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62B9B8142C360AAF00586F15 /* Assets.xcassets */; };
 		62B9B8182C360AAF00586F15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62B9B8172C360AAF00586F15 /* Preview Assets.xcassets */; };
@@ -49,6 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		621696532C40A1660050CA56 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		626D7D822C3ABF0600890FCC /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		626D7D842C3ABF0600890FCC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		626D7D862C3ABF0600890FCC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -61,6 +64,7 @@
 		626D7D9B2C3AC20500890FCC /* HydrateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrateButton.swift; sourceTree = "<group>"; };
 		626D7D9E2C3B48B600890FCC /* RequestPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermission.swift; sourceTree = "<group>"; };
 		626D7DA02C3CA3B600890FCC /* RequestVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestVolume.swift; sourceTree = "<group>"; };
+		626D7DA32C40961400890FCC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		62B9B80B2C360AAE00586F15 /* miniHydro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = miniHydro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B9B8102C360AAE00586F15 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62B9B8142C360AAF00586F15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 				626D7D9B2C3AC20500890FCC /* HydrateButton.swift */,
 				626D7D9E2C3B48B600890FCC /* RequestPermission.swift */,
 				626D7DA02C3CA3B600890FCC /* RequestVolume.swift */,
+				626D7DA22C40961400890FCC /* Localizable.strings */,
 			);
 			path = miniHydro;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 62B9B8022C360AAE00586F15;
 			productRefGroup = 62B9B80C2C360AAE00586F15 /* Products */;
@@ -235,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				626D7D8E2C3ABF0800890FCC /* Assets.xcassets in Resources */,
+				626D7DA52C40961400890FCC /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62B9B8182C360AAF00586F15 /* Preview Assets.xcassets in Resources */,
+				626D7DA42C40961400890FCC /* Localizable.strings in Resources */,
 				62B9B8152C360AAF00586F15 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +290,18 @@
 			targetProxy = 626D7D902C3ABF0800890FCC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		626D7DA22C40961400890FCC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				626D7DA32C40961400890FCC /* en */,
+				621696532C40A1660050CA56 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		626D7D942C3ABF0800890FCC /* Debug */ = {
@@ -359,6 +379,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -422,6 +443,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

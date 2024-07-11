@@ -20,7 +20,7 @@ struct RequestPermission : View {
             Button(action: {
                 manager.requestPermission()
             }) {
-                Text("Grant permission")
+                Text(NSLocalizedString("WELCOME__BUTTON", comment: ""))
                     .foregroundColor(.primary)
                     .font(.headline)
                     .padding()
@@ -30,6 +30,7 @@ struct RequestPermission : View {
                     .padding(.bottom)
             }.padding(.horizontal)
         }
+        .padding(.horizontal)
         }
 }
 
@@ -67,11 +68,11 @@ struct InformationDetailView: View {
 struct InformationContainerView: View {
     var body: some View {
         VStack(alignment: .leading) {
-            InformationDetailView(title: "Stay Hydrated", subTitle: "Quickly log your water intake with just one tap.", imageName: "drop.fill", imageColor: Color.blue)
+            InformationDetailView(title: NSLocalizedString("WELCOME__HINT_1_TITLE", comment: ""), subTitle: NSLocalizedString("WELCOME__HINT_1_DESCRIPTION", comment: ""), imageName: "drop.fill", imageColor: Color.blue)
 
-            InformationDetailView(title: "Permission Needed", subTitle: "We only need permission to save your water intake to Apple Health.", imageName: "square.and.arrow.down", imageColor: nil)
+            InformationDetailView(title: NSLocalizedString("WELCOME__HINT_2_TITLE", comment: ""), subTitle: NSLocalizedString("WELCOME__HINT_2_DESCRIPTION", comment: ""), imageName: "square.and.arrow.down", imageColor: nil)
 
-            InformationDetailView(title: "Your Privacy Matters", subTitle: "We don't read or access any other data.", imageName: "person.badge.key.fill", imageColor: nil)
+            InformationDetailView(title: NSLocalizedString("WELCOME__HINT_3_TITLE", comment: ""), subTitle: NSLocalizedString("WELCOME__HINT_3_DESCRIPTION", comment: ""), imageName: "person.badge.key.fill", imageColor: nil)
         }
         .padding(.horizontal)
     }
@@ -80,12 +81,13 @@ struct InformationContainerView: View {
 struct TitleView: View {
     var body: some View {
         VStack {
-            Text("Welcome to")
+            Text(NSLocalizedString("WELCOME__WELCOME_TO", comment: ""))
                 .fontWeight(.black)
                 .font(.system(size: 36))
                 .foregroundColor(.primary)
+                .multilineTextAlignment(.center)
 
-            Text("miniHydro")
+            Text(NSLocalizedString("APP_NAME", comment: ""))
                 .fontWeight(.black)
                 .font(.system(size: 36))
                 .foregroundColor(.blue)

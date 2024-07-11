@@ -1,0 +1,36 @@
+/* 
+  Localizable.strings
+  miniHydro
+
+  Created by Konstantin Dovnar on 12.07.2024.
+  
+*/
+"APP_NAME" = "miniHydro";
+
+"WELCOME__WELCOME_TO" = "Welcome to";
+"WELCOME__HINT_1_TITLE" = "Stay Hydrated";
+"WELCOME__HINT_1_DESCRIPTION" = "Quickly log your water intake with just one tap.";
+"WELCOME__HINT_2_TITLE" = "Permission Needed";
+"WELCOME__HINT_2_DESCRIPTION" = "We only need permission to save your water intake to Apple Health.";
+"WELCOME__HINT_3_TITLE" = "Your Privacy Matters";
+"WELCOME__HINT_3_DESCRIPTION" = "We don't read or access any other data.";
+"WELCOME__BUTTON" = "Grand permission";
+
+"REJECT__TITLE" = "We Need Your Permission";
+"REJECT__EXPLANATION" = "To help you stay on top of your hydration goals, we need permission to update your water intake in the Apple Health app. This allows us to keep all your health data in one convenient place.";
+"REJECT__INSTRUCTION_TITLE" = "How to Grant Permission:";
+"REJECT__INSTRUCTION_BODY" = "1. Open the Settings app on your iPhone.
+2. Tap on Health settings.
+3. Open Data Access & Devices.
+4. Find and select miniHydro from the list.
+5. Toggle on the permission to update your Water Intake.";
+"REJECT__OPEN_SETTINGS" = "Open settings";
+
+"VOLUME__EXPLANATION" = "To help you track your water intake, we need to know the volume of the glass or bottle you typically use.";
+"VOLUME__ERROR" = "Invalid input. Please enter a positive number for the bottle volume.";
+"VOLUME__HINT" = "Volume";
+"VOLUME__ML" = "ml";
+"VOLUME__OZ" = "oz";
+"VOLUME__SUBMIT" = "Submit";
+
+"MAIN__UPDATE_BOTTLE" = "Update\nbottle";

@@ -105,7 +105,7 @@ struct ContentView: View {
                                 .font(.largeTitle)
                                 .accessibility(hidden: true)
                                 .frame(width: 76)
-                            Text("Update\nbottle")
+                            Text(NSLocalizedString("MAIN__UPDATE_BOTTLE", comment: ""))
                                 .font(.caption)
                         }
                         .padding()
@@ -156,31 +156,24 @@ struct RejectPermission : View {
     var body: some View {
         VStack(alignment: .leading) {
             Spacer()
-            Text("We Need Your Permission")
+            Text(NSLocalizedString("REJECT__TITLE", comment: ""))
                 .font(.title)
                 .fontWeight(.bold)
                 .padding([.bottom], 12)
-            Text("""
-To help you stay on top of your hydration goals, we need permission to update your water intake in the Apple Health app. This allows us to keep all your health data in one convenient place.
-""")
-            Spacer()
-            Text("How to Grant Permission:")
+            Text(NSLocalizedString("REJECT__EXPLANATION", comment: ""))
+                .padding([.bottom], 32)
+            
+            Text(NSLocalizedString("REJECT__INSTRUCTION_TITLE", comment: ""))
                 .font(.headline)
                 .fontWeight(.bold)
                 .padding([.bottom], 12)
-            Text("""
-1. Open the Settings app on your iPhone.
-2. Tap on Health settings.
-3. Open Data Access & Devices.
-4. Find and select miniHydro from the list.
-5. Toggle on the permission to update your Water Intake.
-""")
+            Text(NSLocalizedString("REJECT__INSTRUCTION_BODY", comment: ""))
             
             Spacer()
             Button(action: {
                 openAppSettings()
             }) {
-                Text("Open settings")
+                Text(NSLocalizedString("REJECT__OPEN_SETTINGS", comment: ""))
                     .foregroundColor(.primary)
                     .font(.headline)
                     .padding()
