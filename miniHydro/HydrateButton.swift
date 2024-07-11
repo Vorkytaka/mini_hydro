@@ -38,12 +38,13 @@ struct HydrateButton: View {
             }) {
                 Circle()
                     .fill(.background)
-                    .frame(width: 150, height: 150)
+                    .frame(minWidth: 100, maxWidth: 200, minHeight: 100, maxHeight: 200)
                     .overlay(
                         Text(text)
                             .font(.title3)
                             .foregroundColor(.primary)
                             .fontWeight(.bold)
+                            .padding()
                     )
             }
         }
