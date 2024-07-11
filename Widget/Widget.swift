@@ -76,9 +76,9 @@ struct WidgetEntryView : View {
     var body: some View {
         switch(entry.state) {
         case .noPermissions:
-            Text("No permissions")
+            Text("Give permissions")
         case .noVolume:
-            Text("No volume")
+            Text("Set volume")
         case .success:
             Button(intent: HydrateIntent()) {
                 Circle()
