@@ -80,4 +80,31 @@ class Manager {
             self.unit = units[self.waterType] ?? HKUnit.literUnit(with: .milli)
         })
     }
+    
+    func getVolumeString() -> String {
+        let unit = self.unit
+        let volume = self.getVolume()
+        
+        if(unit == nil || volume == nil) {
+            return ""
+        }
+        
+        let volumeByUnit = String(format:"%.2f", volume!.doubleValue(for: unit!))
+        return "+ \(volumeByUnit) \(unit!.format())"
+    }
+}
+
+extension HKUnit {
+    func format() -> String {
+        switch(self) {
+        case HKUnit.literUnit(with: .milli):
+            return "mL"
+        case HKUnit.fluidOunceUS():
+            return "oz"
+        case HKUnit.fluidOunceImperial():
+            return "oz"
+        default:
+            return self.unitString
+        }
+    }
 }

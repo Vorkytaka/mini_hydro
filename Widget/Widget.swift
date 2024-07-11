@@ -83,11 +83,13 @@ struct WidgetEntryView : View {
             Button(intent: HydrateIntent()) {
                 Circle()
                     .fill(Color.blue)
-                    .frame(width: 100, height: 100)
+                    .frame(minWidth: 100, minHeight: 100)
                     .overlay(
-                        Text("Hydrate")
+                        Text(Manager.shared.getVolumeString())
+                            .multilineTextAlignment(.center)
                             .foregroundColor(.white)
                             .fontWeight(.bold)
+                            .padding()
                     )
             }
         }

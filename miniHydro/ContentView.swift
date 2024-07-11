@@ -63,6 +63,10 @@ class UIManager: ObservableObject {
         manager.cleanVolume()
         checkVolume()
     }
+    
+    func getVolumeString() -> String {
+        return manager.getVolumeString()
+    }
 }
 
 struct ContentView: View {
@@ -91,15 +95,9 @@ struct ContentView: View {
                 RequestVolume()
                     .environmentObject(manager)
             } else {
-                let unit = manager.unit!
-                let volume = manager.volume!
-                
-                let volumeByUnit = String(format:"%.2f", volume.doubleValue(for: unit))
-                let volumeStr = "+ \(volumeByUnit) \(unit.format())"
-                
                 VStack {
                     Spacer()
-                    HydrateButton(text: volumeStr, onTap: manager.hydrate)
+                    HydrateButton(text: manager.getVolumeString(), onTap: manager.hydrate)
                     Spacer()
                     Button(action: manager.cleanVolume) {
                         VStack {
@@ -257,17 +255,3 @@ struct Wave: Shape {
     ContentView()
 }
 
-extension HKUnit {
-    func format() -> String {
-        switch(self) {
-        case HKUnit.literUnit(with: .milli):
-            return "mL"
-        case HKUnit.fluidOunceUS():
-            return "oz"
-        case HKUnit.fluidOunceImperial():
-            return "oz"
-        default:
-            return self.unitString
-        }
-    }
-}
