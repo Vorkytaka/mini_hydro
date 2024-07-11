@@ -37,13 +37,9 @@ struct RequestVolume : View {
                             self.focused = true
                         }
                     }
-                Picker("Select Unit", selection: $manager.selectedUnit) {
-                    ForEach(volumeUnits, id: \.self) { unit in
-                        Text("\(unit)").tag(unit)
-                    }
-                }
-                .pickerStyle(.menu)
-                .frame(width: 100)
+                Text("\(manager.unit!.format())")
+                    .pickerStyle(.menu)
+                    .frame(width: 100)
             }
             if(manager.volumeInputError) {
                 Text("Invalid input. Please enter a positive number for the bottle volume.")

@@ -16,7 +16,6 @@ class UIManager: ObservableObject {
     @Published var unit: HKUnit? = nil
     @Published var permissionStatus: HKAuthorizationStatus = .notDetermined
     @Published var inputValue: String = ""
-    @Published var selectedUnit: HKUnit = HKUnit.literUnit(with: .milli)
     @Published var volumeInputError = false
     
     init() {
@@ -48,7 +47,7 @@ class UIManager: ObservableObject {
     func setVolume() {
         let withDot = inputValue.replacing(",", with: ".")
         if let quantity = Double(withDot) {
-            manager.saveVolume(quantity: quantity, unit: selectedUnit)
+            manager.saveVolume(quantity: quantity, unit: manager.getUnit())
             checkVolume()
         } else {
             volumeInputError = true
@@ -60,10 +59,7 @@ class UIManager: ObservableObject {
     }
     
     func cleanVolume() {
-        if(unit != nil) {
-            selectedUnit = unit!
-            inputValue = "\(volume!.doubleValue(for: selectedUnit))"
-        }
+        inputValue = "\(volume!.doubleValue(for: manager.getUnit()))"
         manager.cleanVolume()
         checkVolume()
     }
@@ -98,8 +94,8 @@ struct ContentView: View {
                 let unit = manager.unit!
                 let volume = manager.volume!
                 
-                let volumeByUnit = volume.doubleValue(for: unit)
-                let volumeStr = "+ \(volumeByUnit) \(unit)"
+                let volumeByUnit = String(format:"%.2f", volume.doubleValue(for: unit))
+                let volumeStr = "+ \(volumeByUnit) \(unit.format())"
                 
                 VStack {
                     Spacer()
@@ -259,4 +255,19 @@ struct Wave: Shape {
 
 #Preview {
     ContentView()
+}
+
+extension HKUnit {
+    func format() -> String {
+        switch(self) {
+        case HKUnit.literUnit(with: .milli):
+            return "mL"
+        case HKUnit.fluidOunceUS():
+            return "oz"
+        case HKUnit.fluidOunceImperial():
+            return "oz"
+        default:
+            return self.unitString
+        }
+    }
 }

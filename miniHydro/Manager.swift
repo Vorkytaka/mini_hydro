@@ -19,8 +19,11 @@ class Manager {
     private let userDefaults = UserDefaults(suiteName: "group.tk.vrk.miniHydro")!
     
     private let waterType = HKObjectType.quantityType(forIdentifier: .dietaryWater)!
+    private var unit: HKUnit? = nil
     
-    private init() {}
+    private init() {
+        getPrefferedUnit()
+    }
     
     func saveVolume(quantity: Double, unit: HKUnit) {
         let dictionaryToSave = [
@@ -41,22 +44,19 @@ class Manager {
         return nil
     }
     
-    func getUnit() -> HKUnit? {
-        if let savedDictionary = userDefaults.dictionary(forKey: Manager.volumeKey),
-           let value = savedDictionary[Manager.volumeValueKey] as? Double,
-           let unitString = savedDictionary[Manager.volumeUnitKey] as? String {
-            return HKUnit(from: unitString)
-        }
-        return nil
+    func getUnit() -> HKUnit {
+        return unit!
     }
     
     func requestHealthKitPermission(completion: @escaping (Bool, (any Error)?) -> Void) {
         healthKit.requestAuthorization(toShare: [waterType], read: []) { success, error in
+            self.getPrefferedUnit()
             completion(success, error)
         }
     }
     
     func checkHealthKitPermission() -> HKAuthorizationStatus {
+        getPrefferedUnit()
         return healthKit.authorizationStatus(for: waterType)
     }
     
@@ -73,5 +73,11 @@ class Manager {
     
     func cleanVolume() {
         userDefaults.removeObject(forKey: Manager.volumeKey)
+    }
+    
+    private func getPrefferedUnit() {
+        healthKit.preferredUnits(for: [waterType], completion: { units, error in
+            self.unit = units[self.waterType] ?? HKUnit.literUnit(with: .milli)
+        })
     }
 }
