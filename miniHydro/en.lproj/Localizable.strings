@@ -17,7 +17,7 @@
 "WELCOME__BUTTON" = "Grand permission";
 
 "REJECT__TITLE" = "We Need Your Permission";
-"REJECT__EXPLANATION" = "To help you stay on top of your hydration goals, we need permission to update your water intake in the Apple Health app. This allows us to keep all your health data in one convenient place.";
+"REJECT__EXPLANATION" = "To help you stay on top of your hydration goals, we need permission to update your water intake in the Apple Health app.";
 "REJECT__INSTRUCTION_TITLE" = "How to Grant Permission:";
 "REJECT__INSTRUCTION_BODY" = "1. Open the Settings app on your iPhone.
 2. Tap on Health settings.
