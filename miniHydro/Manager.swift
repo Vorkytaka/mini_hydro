@@ -60,7 +60,7 @@ class Manager {
         return healthKit.authorizationStatus(for: waterType)
     }
     
-    func hydrate() {
+    func hydrate(completion: ((Bool) -> Void)? = nil) {
         let quantity = getVolume()
         if(quantity == nil) {
             return
@@ -68,7 +68,9 @@ class Manager {
         
         let date: Date = .now
         let sample = HKQuantitySample(type: waterType, quantity: quantity!, start: date, end: date)
-        healthKit.save(sample) { success, error in}
+        healthKit.save(sample) { success, error in
+            completion?(success)
+        }
     }
     
     func cleanVolume() {

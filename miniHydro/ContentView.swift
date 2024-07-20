@@ -40,8 +40,8 @@ class UIManager: ObservableObject {
         unit = manager.getUnit()
     }
     
-    func hydrate() {
-        manager.hydrate()
+    func hydrate(completion: ((Bool) -> Void)? = nil) {
+        manager.hydrate(completion: completion)
     }
     
     func setVolume() {
@@ -77,6 +77,8 @@ struct ContentView: View {
     @State private var percent: Double = 0.7
     @State private var waveOffset = Angle(degrees: 0)
     
+    @State var x = true
+    
     var body: some View {
         let status = manager.permissionStatus
         
@@ -97,7 +99,15 @@ struct ContentView: View {
             } else {
                 VStack {
                     Spacer()
-                    HydrateButton(text: manager.getVolumeString(), onTap: manager.hydrate)
+                    HydrateButton(text: manager.getVolumeString(), onTap: {
+                        manager.hydrate() { success in
+                            if(success) {
+                                ToastManager.shared.show(NSLocalizedString("MAIN__SAVE_SUCCESS", comment: ""))
+                            } else {
+                                ToastManager.shared.show(NSLocalizedString("MAIN__SAVE_ERROR", comment: ""))
+                            }
+                        }
+                    })
                     Spacer()
                     Button(action: manager.cleanVolume) {
                         VStack {
@@ -113,6 +123,7 @@ struct ContentView: View {
                     .foregroundColor(.white.opacity(0.5))
                     .frame(maxWidth: .infinity, alignment: .trailing)
                 }
+                .overlay(ToastOverlay())
             }
         }
         .onAppear {

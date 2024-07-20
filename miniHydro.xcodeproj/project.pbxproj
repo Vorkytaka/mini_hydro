@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62536EA72C4C6C0100451905 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62536EA62C4C6C0100451905 /* Toast.swift */; };
+		62536EA82C4C6C0100451905 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62536EA62C4C6C0100451905 /* Toast.swift */; };
 		626D7D852C3ABF0600890FCC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626D7D842C3ABF0600890FCC /* WidgetKit.framework */; };
 		626D7D872C3ABF0600890FCC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626D7D862C3ABF0600890FCC /* SwiftUI.framework */; };
 		626D7D8A2C3ABF0600890FCC /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626D7D892C3ABF0600890FCC /* WidgetBundle.swift */; };
@@ -52,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		621696532C40A1660050CA56 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		62536EA62C4C6C0100451905 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		626D7D822C3ABF0600890FCC /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		626D7D842C3ABF0600890FCC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		626D7D862C3ABF0600890FCC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -146,6 +149,7 @@
 				626D7D9E2C3B48B600890FCC /* RequestPermission.swift */,
 				626D7DA02C3CA3B600890FCC /* RequestVolume.swift */,
 				626D7DA22C40961400890FCC /* Localizable.strings */,
+				62536EA62C4C6C0100451905 /* Toast.swift */,
 			);
 			path = miniHydro;
 			sourceTree = "<group>";
@@ -264,6 +268,7 @@
 			files = (
 				626D7D8A2C3ABF0600890FCC /* WidgetBundle.swift in Sources */,
 				626D7D992C3ABF8300890FCC /* Manager.swift in Sources */,
+				62536EA82C4C6C0100451905 /* Toast.swift in Sources */,
 				626D7D8C2C3ABF0600890FCC /* Widget.swift in Sources */,
 				626D7D9D2C3AC20500890FCC /* HydrateButton.swift in Sources */,
 			);
@@ -274,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				626D7DA12C3CA3B600890FCC /* RequestVolume.swift in Sources */,
+				62536EA72C4C6C0100451905 /* Toast.swift in Sources */,
 				626D7D9F2C3B48B600890FCC /* RequestPermission.swift in Sources */,
 				626D7D9C2C3AC20500890FCC /* HydrateButton.swift in Sources */,
 				62B9B8112C360AAE00586F15 /* ContentView.swift in Sources */,

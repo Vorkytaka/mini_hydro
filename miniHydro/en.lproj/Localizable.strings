@@ -34,3 +34,5 @@
 "VOLUME__SUBMIT" = "Submit";
 
 "MAIN__UPDATE_BOTTLE" = "Update\nbottle";
+"MAIN__SAVE_SUCCESS" = "Water logged! 💧";
+"MAIN__SAVE_ERROR" = "Error saving to Health. Try again.";
