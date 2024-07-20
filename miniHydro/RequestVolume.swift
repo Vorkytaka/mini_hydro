@@ -9,9 +9,7 @@ import Foundation
 import SwiftUI
 import HealthKit
 
-struct RequestVolume : View {
-    let volumeUnits: [HKUnit] = [.literUnit(with: .milli), .fluidOunceUS(), .fluidOunceImperial()]
-    
+struct RequestVolume : View {    
     @EnvironmentObject var manager: UIManager
     @FocusState var focused: Bool?
     

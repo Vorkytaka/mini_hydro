@@ -11,10 +11,12 @@ import SwiftUI
 struct HydrateButton: View {
     let text: String
     let onTap: () -> Void
-   
+    
     @State private var isTapped = true
     @State private var animate = false
-
+    
+    @State private var isButtonEnabled = true
+    
     var body: some View {
         ZStack {
             if isTapped {
@@ -26,14 +28,18 @@ struct HydrateButton: View {
             }
             
             Button(action: {
-                onTap()
-                
-                withAnimation {
-                    isTapped = true
-                    animate = true
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                    animate = false
+                if isButtonEnabled {
+                    isButtonEnabled = !isButtonEnabled
+                    onTap()
+                    
+                    withAnimation {
+                        isTapped = true
+                        animate = true
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                        animate = false
+                        isButtonEnabled = true
+                    }
                 }
             }) {
                 Circle()
@@ -47,6 +53,7 @@ struct HydrateButton: View {
                             .padding()
                     )
             }
+            .disabled(!isButtonEnabled)
         }
         .frame(width: 200, height: 200)
     }
