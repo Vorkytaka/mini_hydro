@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 import HealthKit
+import WidgetKit
 
 class UIManager: ObservableObject {
     private let manager = Manager.shared
@@ -36,6 +37,7 @@ class UIManager: ObservableObject {
     }
     
     func checkVolume() {
+        WidgetCenter.shared.reloadAllTimelines()
         volume = manager.getVolume()
         unit = manager.getUnit()
     }
