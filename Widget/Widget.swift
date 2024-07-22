@@ -110,8 +110,8 @@ struct MyWidget: Widget {
                     .background()
             }
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName(NSLocalizedString("WIDGET__TITLE", comment: ""))
+        .description(NSLocalizedString("WIDGET__DESCRIPTION", comment: ""))
     }
 }
 

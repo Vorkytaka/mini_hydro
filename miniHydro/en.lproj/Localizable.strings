@@ -36,3 +36,6 @@
 "MAIN__UPDATE_BOTTLE" = "Update\nbottle";
 "MAIN__SAVE_SUCCESS" = "Water logged! 💧";
 "MAIN__SAVE_ERROR" = "Error saving to Health. Try again.";
+
+"WIDGET__TITLE" = "Hydrate button";
+"WIDGET__DESCRIPTION" = "Instantly record your intake from your home screen.";
